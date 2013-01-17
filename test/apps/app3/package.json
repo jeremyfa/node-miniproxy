@@ -1,0 +1,11 @@
+{
+    "name": "app3",
+    "version": "0.1.0",
+    "routes": {
+        "app3.dev": "9003",
+        "www.app3.dev": "9003"
+    },
+    "scripts": {
+        "start": "app3.js"
+    }
+}
