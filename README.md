@@ -3,7 +3,7 @@ miniproxy
 
 Run a proxy that routes your different projects using their package.json files.
 
-Uses bouncy as proxy engine.
+Uses http-proxy as proxy engine.
 
 How does it work?
 -----------------

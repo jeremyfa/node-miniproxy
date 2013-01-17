@@ -2,7 +2,7 @@
 fs = require 'fs'
 path = require 'path'
 colors = require 'colors'
-bouncy = require 'bouncy'
+proxy = require 'http-proxy'
 
 class MiniProxy
 
@@ -25,31 +25,25 @@ class MiniProxy
                             for host, port of json.routes
                                 @routes[host] = parseInt(port, 10)
 
+            router = {}
+            for host, port of @routes
+                router[host] = "#{host}:#{port}"
+
             # Start proxy
-            @server = bouncy (req, res, bounce) =>
-                index = req.headers.host.indexOf(':')
-                if index isnt -1
-                    host = req.headers.host[0...index]
-                else
-                    host = req.headers.host
-                port = @routes[host]
-                if port?
-                    bounce port
-                else
-                    res.statusCode = 404
-                    res.end('invalid host')
-            @server.listen @port
+            proxy.createServer(hostnameOnly: true, router: router).listen(@port)
+
 
             # Display proxy configuration
             console.log "proxy from port #{(''+@port).green}"
             for host, port of @routes
                 console.log "  to port "+"#{port}".green+" when using host "+"#{host}".magenta
 
-            
+            @callback?()
 
         @
 
-    listen: (@port, @host) ->
+    listen: (@port, @host, @callback) ->
+        if not @host? then @host = '127.0.0.1'
         @
 
 

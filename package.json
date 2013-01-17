@@ -1,9 +1,8 @@
 {
   "name": "miniproxy",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Run a proxy that routes your different projects using their package.json files",
   "keywords": [
-    "bouncy",
     "proxy",
     "package",
     "routing"
@@ -11,8 +10,8 @@
   "author": "Jeremy Faivre <contact@jeremyfa.com>",
   "main": "./bin/miniproxy.js",
   "dependencies": {
-    "bouncy": "~2.0.3",
-    "colors": "~0.6.0-1"
+    "colors": "~0.6.0-1",
+    "http-proxy": "~0.8.7"
   },
   "devDependencies": {},
   "repository": {
