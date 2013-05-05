@@ -1,6 +1,6 @@
 {
   "name": "miniproxy",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Run a proxy that routes your different projects using their package.json files",
   "keywords": [
     "proxy",
@@ -11,7 +11,7 @@
   "main": "./bin/miniproxy.js",
   "dependencies": {
     "colors": "~0.6.0-1",
-    "http-proxy": "~0.8.7"
+    "http-proxy": "~0.10.2"
   },
   "devDependencies": {},
   "repository": {
